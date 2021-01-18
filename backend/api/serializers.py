@@ -39,7 +39,7 @@ class VehicleSerializer(serializers.ModelSerializer):
         source='segment.segment_name',
         read_only=True
     )
-    bland_name = serializers.ReadOnlyField(
+    brand_name = serializers.ReadOnlyField(
         source='brand.brand_name',
         read_only=True
     )
