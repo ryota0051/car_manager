@@ -78,7 +78,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'rest_api.wsgi.application'
 
-RESE_FRAMEWORK = {
+REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ],
