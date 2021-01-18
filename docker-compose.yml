@@ -1,0 +1,28 @@
+version: "3.7"
+
+services:
+  db:
+    image: mysql:5.7
+    ports:
+      - 8001:3306
+    restart: always
+    environment:
+      MYSQL_DATABASE: django_docker
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: django
+      MYSQL_PASSWORD: django_pass
+      TZ: "Asia/Tokyo"
+    volumes:
+      - ./mysql:/var/lib/mysql
+
+  backend:
+    build: ./backend
+    command: python
+    user: 1000:1000
+    volumes:
+      - ./backend:/django
+    ports:
+      - "8002:8000"
+    tty: true
+    depends_on:
+      - db
